@@ -52,11 +52,7 @@ public class Main {
     public static int yourFunction1() throws Exception {
         // we use throws Exception to handle the Exception in other place.
         // Simulate a function that takes time to execute
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(1000);
         return 42;
     }
 
