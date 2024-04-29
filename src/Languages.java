@@ -39,7 +39,7 @@ class Translation {
         name="\n\t\t[\u001b[33mnombre\u001b[0m]\t\t\t\t";
         result="\n\t\t[\u001b[33mresultado\u001b[0m]\t\t\t\t";
         totalExecutionTime="Tiempo de ejecución total:\t\t";
-        errorFinder="\t\tEl error ha ocurrido aquí";
+        errorFinder="\t\t\tEl error ha ocurrido aquí";
 
     }
     private void setEnglish(){
@@ -49,7 +49,7 @@ class Translation {
         name="\n\t\t[\u001b[33mname\u001b[0m]\t\t\t\t\t";
         result="\n\t\t[\u001b[33mresult\u001b[0m]\t\t\t\t";
         totalExecutionTime="Total execution time:\t\t";
-        errorFinder="\t\tAn error occurred here";
+        errorFinder="\t\t\tAn error occurred here";
     }
     private void setGerman(){
         selectedLanguage="Sprache ausgewählt: Deutsch";
@@ -58,7 +58,7 @@ class Translation {
         name="\n\t\t[\u001b[33mName\u001b[0m]\t\t\t\t\t";
         result="\n\t\t[\u001b[33mErgebnis\u001b[0m]\t\t\t\t";
         totalExecutionTime="Gesamtlaufzeit:\t\t\t\t";
-        errorFinder="\t\tEin Fehler ist hier aufgetreten";
+        errorFinder="\t\t\tEin Fehler ist hier aufgetreten";
 
     }
     public String getStarTotalExecutionTime(){

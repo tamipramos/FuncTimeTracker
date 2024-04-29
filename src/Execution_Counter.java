@@ -2,7 +2,7 @@ import java.util.concurrent.Callable;
 
 // CONTROLLER
 class Execution_Counter {
-    private static final Languages LANG = Languages.GER;
+    private static final Languages LANG = Languages.ENG;
     static Translation translation = new Translation(LANG);
 
     public static void exec_function(FunctionInfo<?>[] functionArray) {
@@ -58,9 +58,29 @@ class FunctionInfo<T> {
      * <br>EXAMPLE OF USE:
      * <br>
      * <code>FunctionInfo<?>[] functionArray = new FunctionInfo<?>[] { <br>
-     * &emsp;&emsp;new FunctionInfo<>("example1", () -> Example.string("Hello World")),<br>
-     * &emsp;&emsp;new FunctionInfo<>("example2", () -> Example.int(123456)),<br>
-     * &emsp;&emsp;new FunctionInfo<>("example2", () -> Example::char)<br>
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction1", () -> {<br>
+     * &emsp;&emsp;&emsp;&emsp;try{<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Main.yourFunction1();<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction2", () -> {<br>
+     * &emsp;&emsp;&emsp;&emsp;try {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Main.yourFunction2();<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return null;<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction3", () ->  {<br>
+     * &emsp;&emsp;&emsp;&emsp;try {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Main.yourFunction3();<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return null;<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
      * &emsp;&emsp;...<br>
      * };<br></code>
      */
@@ -72,7 +92,7 @@ class FunctionInfo<T> {
     }
 
     /**
-     * Creates an object that contains a Runnable (void function)<br>
+     * Creates an object that contains a Callable (returns output)<br>
      * It should be always an Array of <code>FunctionInfo<?></code> because of the <br>
      * logic implemented in <code>Execution_Counter<></code>.
      * @param functionName the name of the function, can be any name,<br>it is just to mark and show it in the debugger.
@@ -82,10 +102,29 @@ class FunctionInfo<T> {
      * <br>EXAMPLE OF USE:
      * <br>
      * <code>FunctionInfo<?>[] functionArray = new FunctionInfo<?>[] { <br>
-     * &emsp;&emsp;new FunctionInfo<>("example1", () -> Example.void1("Hello World")),<br>
-     * &emsp;&emsp;new FunctionInfo<>("example2", () -> Example.void2()),<br>
-     * &emsp;&emsp;new FunctionInfo<>("example3", () -> Example::void3),<br>
-     * &emsp;&emsp;
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction1", () -> {<br>
+     * &emsp;&emsp;&emsp;&emsp;try{<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Main.yourFunction1();<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction2", () -> {<br>
+     * &emsp;&emsp;&emsp;&emsp;try {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Main.yourFunction2();<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return null;<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
+     * &emsp;&emsp;new FunctionInfo<>("yourFunction3", () ->  {<br>
+     * &emsp;&emsp;&emsp;&emsp;try {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Main.yourFunction3();<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return null;<br>
+     * &emsp;&emsp;&emsp;&emsp;} catch (Exception e) {<br>
+     * &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return Error_Handler.pop_error(e);<br>
+     * &emsp;&emsp;&emsp;&emsp;}<br>
+     * &emsp;&emsp;&emsp;&emsp;}),<br>
      * &emsp;&emsp;...<br>
      * };<br></code>
      */
@@ -99,37 +138,17 @@ class FunctionInfo<T> {
         return functionName;
     }
 
-    public T call() throws Exception {
+    public T call() {
+        try {
             if (callableFunction != null) {
-                try {
-                    return callableFunction.call();
-                } catch (Exception e){
-                    StackTraceElement[] stackTrace = e.getStackTrace();
-                    int lineNumber = 0;
-                    String fileName = "";
-                    if (stackTrace.length > 0) {
-                        lineNumber = stackTrace[0].getLineNumber();
-                        fileName = stackTrace[0].getFileName();
-                    }
-                    return (T) ("\u001b[31m"+(T) e.toString() + "\u001b[0m\u001b[37m" + "\n\t\t\t\t\t\t" + "\u001b[0m\u001b[31m" + Execution_Counter.translation.getErrorFinder() +": \u001b[0m \u001b[33m" + fileName + "::"+lineNumber + "\u001b[0m");
-                }
-            } else {
-                assert runnableFunction != null;
-                try {
-                    runnableFunction.run();
-                    return null;
-                } catch (Exception e) {
-                    StackTraceElement[] stackTrace = e.getStackTrace();
-                    int lineNumber = 0;
-                    String fileName = "";
-                    if (stackTrace.length > 0) {
-                        lineNumber = stackTrace[0].getLineNumber();
-                        fileName = stackTrace[0].getFileName();
-                    }
-                    return (T) ("\u001b[31m"+(T) e.toString() + "\u001b[0m\u001b[37m" + "\n\t\t\t\t\t" + "\u001b[0m\u001b[31m" + Execution_Counter.translation.getErrorFinder() +": \u001b[0m \u001b[33m" + fileName + "::"+lineNumber + "\u001b[0m");
-                }
+                return callableFunction.call();
+            } else if ( runnableFunction != null) {
+                runnableFunction.run();
             }
-
-
+        } catch (Exception e) {
+            return (T) Error_Handler.pop_error(e);
+        }
+        return null;
     }
 }
+
