@@ -1,9 +1,7 @@
 # FuncTimeTracker
 
 
-FuncTimeTracker is a <div>
-<img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
-</div> application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
+FuncTimeTracker is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
 
 ## Features
 
