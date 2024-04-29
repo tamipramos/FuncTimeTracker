@@ -1,9 +1,9 @@
-<span style="color: #f2cf4a; font-family: Babas; font-size: 2em;">FUNC TIME TRACKER</span>
+# FUNC TIME TRACKER
 
 
-FuncTimeTracker is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
+FuncTimeTracker is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="50" height="50"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
 
-<span style="color: #f2cf4a; font-family: Babas; font-size: 1.9em;">FEATURES</span>
+## FEATURES
 
 - Calculates the execution time of each function individually.
 - Supports functions that return a value (`Callable`) and void functions (`Runnable`).
@@ -36,7 +36,7 @@ class Execution_Counter {
 
 ```
 
-<span style="color: #f2cf4a; font-family: Babas; font-size: 1.9em;">USAGE</span>
+## USAGE
 
 To use FuncTimeTracker, follow these steps:
 
@@ -46,7 +46,7 @@ To use FuncTimeTracker, follow these steps:
 
 Below is an example of how to use FuncTimeTracker
 
-<span style="color: #f2cf4a; font-family: Babas; font-size: 1.9em;">EXAMPLE</span>
+## EXAMPLE
 
 Here's an example of how FuncTimeTracker could be used in a Java program:
 
@@ -81,18 +81,18 @@ public class Main {
                         return Error_Handler.pop_error(e);
                     }
                 }),
-            // Add more objects here as needed
+                // Add more objects here as needed
         };
 
         Execution_Counter.exec_function(functionArray);
     }
-    
+
     /////////////////////////////////////////////////////////////////////
     //                      EXAMPLE FUNCTIONS                          //
     // we declare "throws Exception" to catch the future Exception in  //
     //   Error_Handler.java with its function pop_error(Exception e)   //
     /////////////////////////////////////////////////////////////////////
-    
+
     public static int yourFunction1() throws Exception{
         try {
             // Simulate a function that takes time to execute
