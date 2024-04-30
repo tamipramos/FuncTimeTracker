@@ -1,13 +1,13 @@
-# FUNC TIME TRACKER
+# 🗗 *FUNC TIME TRACKER* 🗗
 
 
-FuncTimeTracker is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="50" height="50"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
+_FuncTimeTracker_ is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="50" height="50"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
 
-## FEATURES
+## 🛠 FEATURES 🛠
 
-- Calculates the execution time of each function individually.
-- Supports functions that return a value (`Callable`) and void functions (`Runnable`).
-- Provides detailed information about the execution time of each function, including its name and result.
+    🕤 Calculates the execution time of each function individually.
+    🔁 Supports functions that return a value (`Callable`) and void functions (`Runnable`).
+    💡 Provides detailed information about the execution time of each function, including its name and result.
 ```java
   [✓]  Runtime:				1,003000 seconds
   [name]				yourFunction1
@@ -21,7 +21,7 @@ FuncTimeTracker is a <img src="https://github.com/devicons/devicon/blob/master/i
                                         An error occurred here:  Main.java::55
   [*] Total execution time:		3,015000  seconds
 ```
-- Compatible with multiple languages, with initial support for English.
+    🌐 Compatible with multiple languages, with initial support for English.
 ```java
 public enum Languages {
     ESP,
@@ -36,7 +36,7 @@ class Execution_Counter {
 
 ```
 
-## USAGE
+## 📚 USAGE 📚
 
 To use FuncTimeTracker, follow these steps:
 
@@ -46,7 +46,7 @@ To use FuncTimeTracker, follow these steps:
 
 Below is an example of how to use FuncTimeTracker
 
-## EXAMPLE
+## 📒 EXAMPLE 📒
 
 Here's an example of how FuncTimeTracker could be used in a Java program:
 
