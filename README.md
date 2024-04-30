@@ -42,7 +42,8 @@ To use FuncTimeTracker, follow these steps:
 
 1. Define the functions you want to measure in your program as `FunctionInfo` objects.
 2. Group these functions into a `FunctionInfo<?>[]` array.
-3. Call the `exec_function()` method of `Execution_Counter`, passing the array of functions as an argument.
+3. Every `FunctionInfo<>` Object must be in a Try-Catch statement. To a better Exception handler we should use `Error_Handler.pop_error(Exception e)` as catch-return.
+4. Call the `exec_function()` method of `Execution_Counter`, passing the array of functions as an argument.
 
 Below is an example of how to use FuncTimeTracker
 
