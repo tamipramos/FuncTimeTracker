@@ -1,5 +1,7 @@
 <h1 style="text-align: center;">🗗 *FUNC TIME TRACKER* 🗗</h1>
-
+  <p align="left">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+   </p>
 
 _FuncTimeTracker_ is a <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="50" height="50"/>&nbsp; application designed to measure the execution time of individual functions in a program. It provides a straightforward way to measure and analyze the performance of each function, which can be useful for identifying bottlenecks and optimizing code.
 
